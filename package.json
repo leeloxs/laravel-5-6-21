@@ -1,4 +1,4 @@
-abel{
+{
     "private": true,
     "scripts": {
         "dev": "npm run development",
@@ -23,5 +23,9 @@ abel{
         "vue": "^2.5.17",
         "vue-loader": "^15.9.5",
         "vue-template-compiler": "^2.6.10"
+    },
+    "dependencies": {
+        "element-ui": "^2.15.1",
+        "vuex": "^3.6.2"
     }
 }

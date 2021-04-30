@@ -4423,10 +4423,8 @@ input[type=button].btn-block {
   display: flex;
   flex-wrap: wrap;
   padding-left: 0;
-  margin-bottom: 0px;
+  margin-bottom: 0;
   list-style: none;
-  position: fixed;
-  z-index:1;
 }
 
 .nav-link {
@@ -4440,7 +4438,7 @@ input[type=button].btn-block {
 }
 
 .nav-link.disabled {
-  color: #010203;
+  color: #6c757d;
   pointer-events: none;
   cursor: default;
 }
@@ -4469,7 +4467,7 @@ input[type=button].btn-block {
 
 .nav-tabs .nav-link.active,
 .nav-tabs .nav-item.show .nav-link {
-  color: #000000;
+  color: #495057;
   background-color: #f8fafc;
   border-color: #dee2e6 #dee2e6 #f8fafc;
 }
@@ -4518,15 +4516,6 @@ input[type=button].btn-block {
   align-items: center;
   justify-content: space-between;
   padding: 0.5rem 1rem;
-  z-index: 500px;
-}
-
-.navbar-sticky-top
-{
-    position: fixed;
-    z-index: 999;
-    opacity:1;
-    width: 100%;
 }
 
 .navbar .container,
@@ -10907,3 +10896,52 @@ a.text-dark:focus {
 @page {
     size: a3;
 }
+
+  body {
+    min-width: 992px !important;
+  }
+
+  .container {
+    min-width: 992px !important;
+  }
+
+  .navbar {
+    display: none;
+  }
+
+  .badge {
+    border: 1px solid #000;
+  }
+
+  .table {
+    border-collapse: collapse !important;
+  }
+
+  .table td,
+  .table th {
+    background-color: #fff !important;
+  }
+
+  .table-bordered th,
+  .table-bordered td {
+    border: 1px solid #dee2e6 !important;
+  }
+
+  .table-dark {
+    color: inherit;
+  }
+
+  .table-dark th,
+  .table-dark td,
+  .table-dark thead th,
+  .table-dark tbody + tbody {
+    border-color: #dee2e6;
+  }
+
+  .table .thead-dark th {
+    color: inherit;
+    border-color: #dee2e6;
+  }
+}
+
+

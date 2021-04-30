@@ -23,8 +23,8 @@
 <div id="app" style= "background-image: url('{{ asset('img/help.jpg')}}');">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}"> 
-                
+                <a class="navbar-brand" href="{{ url('/') }}">
+
                      <img src="/svg/mylogo.svg" style="max-height:50px; border-right:0.5px solid #333;"></a>
                      <div class="pl-1"><b>LetsPhilonthropy</b></div>
                 </a>
@@ -35,7 +35,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                    
+
 
                     </ul>
 
@@ -48,7 +48,7 @@
                                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </li>
                             @endif
-                            
+
                             @if (Route::has('register'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
@@ -66,7 +66,7 @@
                                     {{ Auth::user()->name }}
                                 </a>
 
-        
+
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 <a href= "{{ url('myprofile')}}" class="dropdown-item">

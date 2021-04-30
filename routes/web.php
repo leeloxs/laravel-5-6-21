@@ -1,5 +1,6 @@
 <?php
 
+use FontLib\Table\Type\name;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\MollieController;
@@ -131,10 +132,10 @@ Route::get('/payment2', function () {
 
 
 
-Route::view("profile",'profile'); 
+Route::view("profile",'profile');
 Route::view("form",'home');
 Route::post("submit",'Editprofile@save');
-//Route:get('/contact',[ContactController::class,'contact']);   //contact-form & contact function 
+//Route:get('/contact',[ContactController::class,'contact']);   //contact-form & contact function
 //Route::post('/send-message',[ContactController::class,'sendEmail'])->name(contact.send);
 
 //Auth::routes();
@@ -149,4 +150,8 @@ Route::post("submit",'Editprofile@save');
 
 
 Auth::routes();
+
+Route::get('posts', 'App\Http\Controllers\PostController@index')->name('posts.index');
+Route::post('posts', 'App\Http\Controllers\PostController@store')->name('posts.store');
+Route::get('posts/showPage', 'App\Http\Controllers\PostController@showPostPage')->name('posts.showPosts');
 
