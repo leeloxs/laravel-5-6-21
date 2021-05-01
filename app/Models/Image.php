@@ -10,7 +10,7 @@ class Image extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['post_id', 'post_image_path', 'post_image_caption'];
+    protected $fillable = ['path', 'caption', 'imageable_type', 'imageable_id'];
 
     public function imageable()
     {

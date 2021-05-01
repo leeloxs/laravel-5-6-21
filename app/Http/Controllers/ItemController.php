@@ -33,7 +33,6 @@ class ItemController extends Controller
             $title = $request->title;
             $body = $request->body;
             $quantity = $request->quantity;
-
             $images = $request->images;
 
             $item = Item::create([

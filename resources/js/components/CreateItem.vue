@@ -1,5 +1,5 @@
 <template>
-    <div :key="componentKey" class="card mt-4 w-100 shadow">
+    <div :key="componentKey" class="card mt-4">
         <div class="card-body">
             <div
                 v-if="status_msg"
@@ -11,7 +11,7 @@
             </div>
             <form>
                 <div class="row">
-                    <div class="col-sm-4">
+                    <div class="col-sm-4 text-center">
                         <div class>
                             <el-upload
                                 action="https://jsonplaceholder.typicode.com/items/"
@@ -43,10 +43,10 @@
                             </div>
                             <div class="col">
                                 <div class="form-group row">
-                                    <div class="col-sm-2 text-right pr-1">
-                                        <button class="btn btn-success">+</button>
+                                    <div class="col-sm-2 text-right pr-0 mr-3">
+                                        <button class="btn btn-success" @click.prevent="quantity++">+</button>
                                     </div>
-                                    <div class="col-sm-8  pr-0 pl-0">
+                                    <div class="col-sm-6  pr-0 pl-0">
                                         <input
                                             id="quantity"
                                             v-model="quantity"
@@ -57,7 +57,7 @@
                                         >
                                     </div>
                                     <div class="col-sm-2 text-left pl-1">
-                                        <button class="btn btn-danger">-</button>
+                                        <button class="btn btn-danger" @click.prevent="quantity--">-</button>
                                     </div>
                                 </div>
                             </div>
@@ -73,19 +73,19 @@
                 </div>
             </form>
         </div>
-        <div class="card-footer">
+        <div class="card-footer text-right">
             <button
                 type="button"
-                class="btn btn-success"
+                class="btn btn-success "
                 @click="createItem"
             >
-                {{ isCreatingItem ? "Posting..." : "Create Post" }}
+                {{ isCreatingItem ? "Creating..." : "Create Item" }}
             </button>
         </div>
     </div>
 </template>
 
-<style>
+<style scoped>
 .avatar-uploader .el-upload {
     border: 1px dashed #d9d9d9;
     border-radius: 6px;
@@ -111,7 +111,16 @@
 }
 #item-content{
     resize: none;
-
+}
+.card  {
+    border: none;
+    transition: all 0.2s;
+    /*box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);*/
+}
+.card:hover {
+    margin-top: -.25rem;
+    margin-bottom: .25rem;
+    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.3);
 }
 </style>
 

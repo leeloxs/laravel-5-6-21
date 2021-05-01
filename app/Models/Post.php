@@ -9,7 +9,7 @@ class Post extends Model
 {
     use HasFactory;
 
-    const IMAGEABLE_TYPE = "Post";
+    const IMAGEABLE_TYPE = "App\Models\Item";
 
     protected $fillable = ['title', 'body', 'user_id'];
 

@@ -9,7 +9,7 @@ class Item extends Model
 {
     use HasFactory;
 
-    const IMAGEABLE_TYPE = "Item";
+    const IMAGEABLE_TYPE = "App\Models\Item";
 
     protected $fillable = ['title', 'body', 'user_id', 'quantity'];
 
