@@ -2,11 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Models\Item;
 use Illuminate\Database\Seeder;
-use App\Models\Image;
-use App\Models\Post;
 
-class PostsTableSeeder extends Seeder
+class ItemSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,8 +14,7 @@ class PostsTableSeeder extends Seeder
      */
     public function run()
     {
-
-        Post::factory()->count(20)
+        Item::factory()->count(20)
             ->hasImages(1)
             ->hasAuthor(1)
             ->create();

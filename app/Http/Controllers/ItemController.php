@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Item;
 use App\Models\Post;
 use App\Models\Image;
 use App\Models\User;
@@ -9,7 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
-class PostController extends Controller
+class ItemController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +18,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::with('images')->orderBy('created_at', 'desc')->get();
-        return response()->json(['error' => false, 'data' => $posts]);
+        $items = Item::with('images')->orderBy('created_at', 'desc')->get();
+        return response()->json(['error' => false, 'data' => $items]);
     }
 
     /**
@@ -31,21 +32,24 @@ class PostController extends Controller
             $user = User::find(1);
             $title = $request->title;
             $body = $request->body;
+            $quantity = $request->quantity;
+
             $images = $request->images;
 
-            $post = Post::create([
+            $item = Item::create([
                 'title' => $title,
                 'body' => $body,
+                'quantity' => $quantity,
                 'user_id' => $user->id,
             ]);
             // store each image
             foreach($images as $image) {
-                $imagePath = Storage::disk('uploads')->put($user->email . '/posts/' . $post->id, $image);
+                $imagePath = Storage::disk('uploads')->put($user->email . '/items/' . $item->id, $image);
                 Image::create([
                     'caption' => $title,
                     'path' => '/uploads/' . $imagePath,
-                    'imageable_id' => $post->id,
-                    'imageable_type' => Post::IMAGEABLE_TYPE,
+                    'imageable_id' => $item->id,
+                    'imageable_type' => Item::IMAGEABLE_TYPE,
                 ]);
             }
         });
@@ -56,9 +60,9 @@ class PostController extends Controller
      * Display the resources page.
      *
      */
-    public function showPostPage()
+    public function showItemPage()
     {
-        return view('posts.index');
+        return view('items.index');
 
     }
 }

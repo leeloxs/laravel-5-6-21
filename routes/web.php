@@ -151,7 +151,13 @@ Route::post("submit",'Editprofile@save');
 
 Auth::routes();
 
+//Posts
 Route::get('posts', 'App\Http\Controllers\PostController@index')->name('posts.index');
 Route::post('posts', 'App\Http\Controllers\PostController@store')->name('posts.store');
-Route::get('posts/showPage', 'App\Http\Controllers\PostController@showPostPage')->name('posts.showPosts');
+Route::get('posts/showPage', 'App\Http\Controllers\PostController@showPostPage')->name('posts.showPage');
+
+//Items
+Route::get('items', 'App\Http\Controllers\ItemController@index')->name('items.index');
+Route::post('items', 'App\Http\Controllers\ItemController@store')->name('items.store');
+Route::get('items/showPage', 'App\Http\Controllers\ItemController@showItemPage')->name('items.showPage');
 

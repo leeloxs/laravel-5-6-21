@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePostImagesTable extends Migration
+class CreateItemsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class CreatePostImagesTable extends Migration
      */
     public function up()
     {
-        Schema::create('post_images', function (Blueprint $table) {
+        Schema::create('items', function (Blueprint $table) {
             $table->id();
-            $table->integer('post_id')->unsigned();
-            $table->string('post_image_path');
-            $table->string('post_image_caption')->nullable();
+            $table->string('title');
+            $table->text('body');
+            $table->integer('quantity')->default(1);
+            $table->foreignId('user_id')->constrained('users');
             $table->timestamps();
         });
     }
@@ -29,6 +30,6 @@ class CreatePostImagesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('post_images');
+        Schema::dropIfExists('items');
     }
 }

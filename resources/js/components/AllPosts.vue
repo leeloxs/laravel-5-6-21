@@ -2,7 +2,7 @@
     <div class="row justify-content-around">
         <div class="col-md-4" v-for="(post, i) in posts" :key=i>
             <div class="card m-4 shadow">
-                <img v-if="post.post_images.length" class="card-img-top" :src="post.post_images[0].post_image_path">
+                <img v-if="post.images.length" class="card-img-top" :src="post.images[0].path">
                 <div class="card-body">
                     <p class="card-text"><strong>{{ post.title }}</strong> <br>
                         {{ truncateText(post.body) }}
@@ -15,8 +15,8 @@
           <span>
             <h3>{{ currentPost.title }}</h3>
             <div class="row">
-              <div class="col-md-6" v-for="(img, i) in currentPost.post_images" :key=i>
-                <img :src="img.post_image_path" class="img-thumbnail" alt="">
+              <div class="col-md-6" v-for="(img, i) in currentPost.images" :key=i>
+                <img :src="img.path" class="img-thumbnail" alt="">
               </div>
             </div>
             <hr>
