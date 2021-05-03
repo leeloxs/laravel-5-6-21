@@ -25,7 +25,6 @@ class PostFactory extends Factory
         return [
             'title' => $this->faker->name,
             'body' => $this->faker->text,
-            'user_id' => 1,
         ];
     }
 }

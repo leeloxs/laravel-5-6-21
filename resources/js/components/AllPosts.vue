@@ -2,8 +2,8 @@
     <div class="container bg-white mt-5">
         <div class="row p-2 " v-for="(post, i) in posts" :key=i style="border-bottom: 1px solid #ced4da">
             <div class="media p-1 w-100" >
-                <a class="pr-3 view-post" @click="viewPost(i)">
-                    <img class="mr-3" v-if="post.images.length" :src="post.images[0].path" width="75" height="75"
+                <a class="pr-3 view-post" @click="viewPost(i)">      <!-- TODO: add this for dynamic photos :src="post.images[0].path"-->
+                    <img class="mr-3" v-if="post.user.images.length " :src="post.user.images[0].path"  width="50" height="50"
                          alt="Generic placeholder image">
                 </a>
                 <div class="media-body">
@@ -43,6 +43,7 @@ export default {
         return {
             postDialogVisible: false,
             currentPost: '',
+            avatar: '/img/avatar.jpg',
         };
     },
     computed: {

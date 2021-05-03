@@ -13,7 +13,7 @@ class Item extends Model
 
     protected $fillable = ['title', 'body', 'user_id', 'quantity'];
 
-    public function author()
+    public function user()
     {
         return $this->belongsTo(User::class);
     }

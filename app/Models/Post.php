@@ -9,11 +9,11 @@ class Post extends Model
 {
     use HasFactory;
 
-    const IMAGEABLE_TYPE = "App\Models\Item";
+    const IMAGEABLE_TYPE = "App\Models\Post";
 
     protected $fillable = ['title', 'body', 'user_id'];
 
-    public function author()
+    public function user()
     {
         return $this->belongsTo(User::class);
     }

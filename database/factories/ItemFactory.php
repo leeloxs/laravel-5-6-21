@@ -25,7 +25,6 @@ class ItemFactory extends Factory
             'title' => $this->faker->name,
             'body' => $this->faker->text,
             'quantity' => 2,
-            'user_id' => 1,
         ];
     }
 }

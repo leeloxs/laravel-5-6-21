@@ -17,7 +17,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::with('images')->orderBy('created_at', 'desc')->get();
+        $posts = Post::with(['images', 'user.images'])->orderBy('created_at', 'desc')->get();
         return response()->json(['error' => false, 'data' => $posts]);
     }
 
@@ -29,7 +29,7 @@ class PostController extends Controller
         DB::transaction(function () use ($request) {
             // TODO: use auth then take the $user = Auth::user();
             $user = User::find(1);
-            $title = $request->title;
+            $title = $request->title ?? '';
             $body = $request->body;
             $images = $request->images;
 
@@ -49,6 +49,7 @@ class PostController extends Controller
                 ]);
             }
         });
+
         return response()->json(200);
     }
 
