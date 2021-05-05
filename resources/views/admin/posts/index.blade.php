@@ -11,7 +11,7 @@
                     <div class="card-header border-0">
                         <div class="row align-items-center">
                             <div class="col-8">
-                                <h3 class="mb-0">Items</h3>
+                                <h3 class="mb-0">Posts</h3>
                             </div>
                         </div>
                     </div>
@@ -21,7 +21,7 @@
 
                     {{-- Grid --}}
                     <div class="table-responsive">
-                        <table class="table text-center table-hover items-dataTable">
+                        <table class="table text-center table-hover posts-dataTable">
                             <thead>
                                 <tr>
                                     <th>
@@ -31,7 +31,7 @@
                                         title
                                     </th>
                                     <th>
-                                        quantity
+                                        body
                                     </th>
                                     <th>
                                         author
@@ -45,28 +45,28 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($items as $key => $item)
-                                    <tr data-entry-id="{{ $item->id }}">
+                                @foreach($posts as $key => $post)
+                                    <tr data-entry-id="{{ $post->id }}">
                                         <td>
-                                            {{ $item->id ?? '' }}
+                                            {{ $post->id ?? '' }}
                                         </td>
                                         <td class="text-capitalize">
-                                            {{ $item->title ?? ''}}
+                                            {{ $post->title ?? ''}}
                                         </td>
                                         <td class="text-lowercase">
-                                            {{ $item->quantity ?? 0 }}
+                                            {{ $post->body ?? '' }}
                                         </td>
                                         <td class="text-capitalize">
-                                            {{ $item->user->name ?? ''}}
+                                            {{ $post->user->name ?? ''}}
                                         </td>
                                         <td class="text-lowercase">
-                                            {{ $item->created_at->format('Y-m-d') }}
+                                            {{ $post->created_at->format('Y-m-d') }}
                                         </td>
                                         <td class="text-capitalize" >
-                                            <a  href="{{ route('admin.items.show', $item->id) }}">
+                                            <a  href="{{ route('admin.posts.show', $post->id) }}">
                                                 <i class="far fa-edit text-primary"></i>
                                             </a>
-                                            <form action="{{ route('admin.items.destroy', $item->id) }}" method="POST" style="display: inline-block;">
+                                            <form action="{{ route('admin.posts.destroy', $post->id) }}" method="POST" style="display: inline-block;">
                                                 <input type="hidden" name="_method" value="DELETE">
                                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                                 <i class="far fa-trash-alt text-danger delete-btn" style=" cursor: pointer;"></i>
@@ -80,7 +80,7 @@
 
                     {{-- Pagination --}}
                     <div class="card-footer py-4">
-                        {{ $items->links() }}
+                        {{ $posts->links() }}
                     </div>
                 </div>
             </div>
@@ -93,7 +93,7 @@
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
         $(document).ready(function () {
-            var table = $('.items-dataTable').DataTable();
+            var table = $('.posts-dataTable').DataTable();
             $('.dataTables_filter').append('<i class=" fa fa-search dataTable-search"></i>');
         });
 
@@ -101,7 +101,7 @@
         $('.delete-btn').on('click', function () {
             swal({
                     title: "Are you sure?",
-                    text: "you want to delete this item!",
+                    text: "you want to delete this post!",
                     icon: "warning",
                     buttons: true,
                     dangerMode: true,
@@ -109,12 +109,12 @@
                 .then((willDelete) => {
                     if (willDelete) {
                         $(this).closest('form').submit();
-                        swal("Poof! Item has been deleted!", {
+                        swal("Poof! Post has been deleted!", {
                             icon: "success",
                             buttons: false,
                         });
                     } else {
-                        swal("Item is safe!", {
+                        swal("Post is safe!", {
                             buttons: false,
                         });
                     }

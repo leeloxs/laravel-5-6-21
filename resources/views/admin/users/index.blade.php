@@ -14,7 +14,7 @@
                                 <h3 class="mb-0">Users</h3>
                             </div>
                             <div class="col-4 text-right">
-                                <a href="{{ route('users.create') }}" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#user-modal"  id="create-btn">Add user</a>
+                                <a href="{{ route('admin.users.create') }}" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#user-modal"  id="create-btn">Add user</a>
                                 @include('admin.includes.user_modal_form')
                             </div>
                         </div>
@@ -61,10 +61,10 @@
                                             {{ $user->created_at->format('Y-m-d') }}
                                         </td>
                                         <td class="text-capitalize" >
-                                            <a  href="{{ route('users.show', $user->id) }}">
+                                            <a  href="{{ route('admin.users.show', $user->id) }}">
                                                 <i class="far fa-edit text-primary"></i>
                                             </a>
-                                            <form action="{{ route('users.destroy', $user->id) }}" method="POST" style="display: inline-block;">
+                                            <form action="{{ route('admin.users.destroy', $user->id) }}" method="POST" style="display: inline-block;">
                                                 <input type="hidden" name="_method" value="DELETE">
                                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                                 <i class="far fa-trash-alt text-danger delete-btn" style=" cursor: pointer;"></i>

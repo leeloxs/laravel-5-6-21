@@ -94,17 +94,17 @@
                     <div class="collapse" id="user-management">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item {{Request::path() === 'users' ? 'active' : ''}}">
-                                <a class="nav-link" href="{{ route('users.index') }}">
+                                <a class="nav-link" href="{{ route('admin.users.index') }}">
                                     {{ __('Users') }}
                                 </a>
                             </li>
                             <li class="nav-item {{Request::path() === 'items' ? 'active' : ''}}">
-                                <a class="nav-link" href="{{ route('items.index') }}">
+                                <a class="nav-link" href="{{ route('admin.items.index') }}">
                                     Items
                                 </a>
                             </li>
                             <li class="nav-item {{Request::path() === 'posts' ? 'active' : ''}}">
-                                <a class="nav-link" href="{{ route('posts.index') }}">
+                                <a class="nav-link" href="{{ route('admin.posts.index') }}">
                                     Posts
                                 </a>
                             </li>

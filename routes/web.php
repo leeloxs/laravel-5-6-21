@@ -165,11 +165,17 @@ Route::get('items/showPage', 'ItemController@showItemPage')->name('items.showPag
 /**********************
  * ADMIN DASHBOARD
  *********************/
-Route::group(['prefix' => 'admin',  'namespace' => 'Admin'], function(){
+Route::group(['prefix' => 'admin',  'namespace' => 'Admin', 'as' => 'admin.'], function(){
         Route::get('/', 'AdminController@dashboard');
 
         //Users
         Route::resource('users', 'UserController');
         Route::post('users/profile/{user}', ['as' => 'users.avatar.update', 'uses' => 'UserController@updateAvatar']);
+
+        //Items
+        Route::resource('items', 'ItemController');
+
+        //Posts
+        Route::resource('posts', 'PostController');
 
 });

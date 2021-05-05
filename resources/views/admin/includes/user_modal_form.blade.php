@@ -9,7 +9,7 @@
           </button>
         </div>
         <div class="modal-body">
-            <form method="post" action="{{ route('users.store') }}" id="user-form" autocomplete="off">
+            <form method="post" action="{{ route('admin.users.store') }}" id="user-form" autocomplete="off">
                 @csrf
                 <div class="pl-lg-4">
                     {{-- Name --}}

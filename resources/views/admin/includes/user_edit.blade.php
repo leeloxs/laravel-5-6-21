@@ -1,7 +1,7 @@
 @push('css')
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 @endpush
-<form action="{{ route('users.update', $user->id) }}" method="post" autocomplete="off" class="p-1" id="form-user-edit">
+<form action="{{ route('admin.users.update', $user->id) }}" method="post" autocomplete="off" class="p-1" id="form-user-edit">
     @csrf
     @method('PATCH')
     <div class="pl-lg-4">
