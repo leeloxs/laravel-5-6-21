@@ -1,0 +1,18 @@
+.dataTables_filter input[type=search] {
+    width: 300px !important;
+    box-sizing: border-box;
+    border-radius: 2rem !important;
+    margin-right: 10px;
+    background-color: lightgray;
+} 
+.dataTables_filter input[type=search]:focus {
+    box-sizing: border-box;
+    font-size: 12px;
+    background-color: white; 
+    padding: 10px 10px 10px 40px;
+} 
+.dataTable-search{
+    right: 280px;
+    top: 8px;
+    position: absolute;
+}

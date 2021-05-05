@@ -18,7 +18,8 @@ class CreateItemsTable extends Migration
             $table->string('title');
             $table->text('body');
             $table->integer('quantity')->default(1);
-            $table->foreignId('user_id')->constrained('users');
+            $table->foreignId('user_id')->constrained('users')->onUpdate('cascade')
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }

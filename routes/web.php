@@ -2,15 +2,14 @@
 
 use FontLib\Table\Type\name;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ContactController;
-use App\Http\Controllers\MollieController;
-use App\Http\Conrollers\PayController;
-use App\Http\Controllers\OnepayController;
-use App\Http\Controllers\PaymentController;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\Payments1Controller;
-use App\Http\Controllers\ReceiptPayment;
-
+//use App\Http\Controllers\ContactController;
+//use App\Http\Controllers\MollieController;
+//use App\Http\Conrollers\PayController;
+//use App\Http\Controllers\OnepayController;
+//use App\Http\Controllers\PaymentController;
+//use App\Http\Controllers\UserController;
+//use App\Http\Controllers\Payments1Controller;
+//use App\Http\Controllers\ReceiptPayment;
 
 
 /*
@@ -26,20 +25,20 @@ use App\Http\Controllers\ReceiptPayment;
 
 Auth::routes();
 
-//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 //Route::group(['middleware' -> ['auth','isUser']), function() {
   //  Route::get('/home', 'HomeController@index')->name("home");
-Route::get('/myprofile','App\Http\Controllers\Frontend\UserController@myprofile');
-Route::post('/myprofile-update','App\Http\Controllers\Frontend\UserController@profileupdate');
+Route::get('/myprofile','Frontend\UserController@myprofile');
+Route::post('/myprofile-update','Frontend\UserController@profileupdate');
 
-//Route::get('/payment1','App\Http\Controllers\Payments1Controller@payment1');
-//Route::post('/payment1store','App\Http\Controllers\Payments1Controller@payment1store');
+//Route::get('/payment1','Payments1Controller@payment1');
+//Route::post('/payment1store','Payments1Controller@payment1store');
 
 Route::get('/payment1', function(){
     return view('payment1');
 });
-Route::post('payment1store',[Payments1Controller::class,'payment1store']);
+Route::post('payment1store',['Payments1Controller@payment1store']);
 
 Route::get('/about', function () {
     return view('about');
@@ -53,7 +52,7 @@ Route::get('/about', function () {
 
 //Route::post('/contact', 'HomeController@send_mail')->name('addContact');
 
-Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
+Route::get('logout', 'Auth\LoginController@logout');
 
 Route::get('/', function () {
     return view('home');
@@ -84,13 +83,13 @@ Route::get('/contactus', function () {
     return view('contactus');
 });
 
-Route::post('/contactusstore','App\Http\Controllers\ContactController@contactusstore');
+Route::post('/contactusstore','ContactController@contactusstore');
 
 Route::get('/payment2', function () {
     return view('payment2');
 });
 
-Route::post('/receipt','App\Http\Controllers\ReceiptController@receipt');
+Route::post('/receipt','ReceiptController@receipt');
 //Route::post('receipt',[ReceiptController::class,'receipt']);
 
 Route::get('/donate', function () {
@@ -110,8 +109,8 @@ Route::get('/payment2', function () {
 });
 
 
-//Route::get('/contact-form', [App\Http\Controllers\ContactController::class, 'contactForm'])->name('contact-form');
-//Route::post('/contact-form', [App\Http\Controllers\ContactController::class, 'storeContactForm'])->name('contact-form.store');
+//Route::get('/contact-form', [ContactController::class, 'contactForm'])->name('contact-form');
+//Route::post('/contact-form', [ContactController::class, 'storeContactForm'])->name('contact-form.store');
 
 
 //Route::post('submit', 'pays1@save');
@@ -120,8 +119,8 @@ Route::get('/payment2', function () {
 
 
 // payment 1 test
-//Route::get('/payment1', [App\Http\Controllers\OnepayController::class, 'payment1'])->name('payment1');
-//Route::post('/payment1', [App\Http\Controllers\OnepayController::class, 'storepayment1'])->name('payment1.store');
+//Route::get('/payment1', [OnepayController::class, 'payment1'])->name('payment1');
+//Route::post('/payment1', [OnepayController::class, 'storepayment1'])->name('payment1.store');
 
 
 
@@ -140,24 +139,37 @@ Route::post("submit",'Editprofile@save');
 
 //Auth::routes();
 
-//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 //Auth::routes();
 
-//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('layouts\app');
+//Route::get('/home', [HomeController::class, 'index'])->name('layouts\app');
 
 
 
 
 Auth::routes();
+//Users
+
 
 //Posts
-Route::get('posts', 'App\Http\Controllers\PostController@index')->name('posts.index');
-Route::post('posts', 'App\Http\Controllers\PostController@store')->name('posts.store');
-Route::get('posts/showPage', 'App\Http\Controllers\PostController@showPostPage')->name('posts.showPage');
+Route::get('posts', 'PostController@index')->name('posts.index');
+Route::post('posts', 'PostController@store')->name('posts.store');
+Route::get('posts/showPage', 'PostController@showPostPage')->name('posts.showPage');
 
 //Items
-Route::get('items', 'App\Http\Controllers\ItemController@index')->name('items.index');
-Route::post('items', 'App\Http\Controllers\ItemController@store')->name('items.store');
-Route::get('items/showPage', 'App\Http\Controllers\ItemController@showItemPage')->name('items.showPage');
+Route::get('items', 'ItemController@index')->name('items.index');
+Route::post('items', 'ItemController@store')->name('items.store');
+Route::get('items/showPage', 'ItemController@showItemPage')->name('items.showPage');
 
+/**********************
+ * ADMIN DASHBOARD
+ *********************/
+Route::group(['prefix' => 'admin',  'namespace' => 'Admin'], function(){
+        Route::get('/', 'AdminController@dashboard');
+
+        //Users
+        Route::resource('users', 'UserController');
+        Route::post('users/profile/{user}', ['as' => 'users.avatar.update', 'uses' => 'UserController@updateAvatar']);
+
+});
