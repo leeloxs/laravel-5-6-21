@@ -55,7 +55,7 @@ Contact us
                     <div class="col-6">
                         
                         <div class="form-group">
-                            <label for="name" class="col-form-label text-md-right">{{ __('Phone Number') }}</label>
+                            <label for="phone" class="col-form-label text-md-right">{{ __('Phone Number') }}</label>
 
                             <input type="text" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ isset(Auth::user()->phone) ? Auth::user()->phone : '' }}" required autocomplete="phone" autofocus>
 
@@ -71,7 +71,7 @@ Contact us
                 
                     
                         <div class="form-group">
-                            <label for="name" class="col-form-label text-md-right">{{ __('Subject') }}</label>
+                            <label for="subject" class="col-form-label text-md-right">{{ __('Subject') }}</label>
 
                             <input type="text" class="form-control @error('subject') is-invalid @enderror" name="subject" required autofocus>
 
@@ -86,7 +86,7 @@ Contact us
                     <div class="col-6">
                         <div class="form-group">
 
-                            <label for="password" class="col-form-label text-md-right">{{ __('Message') }}</label>
+                            <label for="message" class="col-form-label text-md-right">{{ __('Message') }}</label>
 
                             <textarea class="form-control @error('message') is-invalid @enderror" name="message" required></textarea>
 
@@ -101,7 +101,7 @@ Contact us
                     <div class="col-6">
                 
                         <div class="form-group">
-                            <label for="name" class="col-form-label text-md-right">{{ __('Attach Screenshot') }}</label>
+                            <label for="upload" class="col-form-label text-md-right">{{ __('Attach Screenshot') }}</label>
 
                             <input type="file" accept="image/*" class="form-control @error('screenshot') is-invalid @enderror" name="screenshot" autofocus>
 

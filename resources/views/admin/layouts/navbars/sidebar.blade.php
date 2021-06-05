@@ -79,8 +79,8 @@
             <!-- Navigation -->
             <ul class="navbar-nav">
                 {{-- Dashboard --}}
-                <li class="nav-item {{Request::path() === 'home' ? 'active' : ''}} ">
-                    <a class="nav-link" href="{{ url('home') }}">
+                <li class="nav-item {{Request::path() === 'admin' ? 'active' : ''}} ">
+                    <a class="nav-link" href="{{ url('admin') }}">
                         <i class="ni ni-tv-2 text-primary" ></i>
                         <span>{{ __('Dashboard') }}</span>
                     </a>

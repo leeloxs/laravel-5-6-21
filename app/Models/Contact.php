@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Contact extends Model
 {
     use HasFactory;
-    public $timestamps=false;
+    public $timestamps=true;
 
     /**
      * The attributes that are mass assignable.

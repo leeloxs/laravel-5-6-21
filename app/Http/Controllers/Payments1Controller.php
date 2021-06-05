@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class Payments1Controller extends Controller
 {
     //
-    function payment1store(Request $req)
+    public function payment1store(Request $req)
     {
         $payment= new Payment;
         $payment ->name=$req->name;

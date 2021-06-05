@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Route;
 //use App\Http\Controllers\OnepayController;
 //use App\Http\Controllers\PaymentController;
 //use App\Http\Controllers\UserController;
-//use App\Http\Controllers\Payments1Controller;
+use App\Http\Controllers\Payments1Controller;
 //use App\Http\Controllers\ReceiptPayment;
 
 
@@ -85,10 +85,11 @@ Route::get('/contactus', function () {
 
 Route::post('/contactusstore','ContactController@contactusstore');
 
-Route::get('/payment2', function () {
-    return view('payment2');
-});
+// Route::get('/payment2', function () {
+//     return view('payment2');
+// });
 
+Route::get('/payment2', 'ReceiptController@payment2');
 Route::post('/receipt','ReceiptController@receipt');
 //Route::post('receipt',[ReceiptController::class,'receipt']);
 

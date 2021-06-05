@@ -5,9 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Onepay extends Model
+class Contact extends Model
 {
     use HasFactory;
+    public $timestamps=true;
 
     /**
      * The attributes that are mass assignable.
@@ -15,6 +16,6 @@ class Onepay extends Model
      * @var array
     */
     public $fillable = [
-        'name', 'email', 'amount', 'address', 'city' , 'state' , 'zip'
+        'fname', 'lname', 'address1', 'address2', 'city', 'state', 'phone' , 'alternatephone'
     ];
 }

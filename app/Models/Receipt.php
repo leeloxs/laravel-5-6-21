@@ -11,4 +11,6 @@ class Receipt extends Model
     public $fillable = [
         'name', 'email', 'amount',
     ];
+
+    protected $table = "receipts";
 }

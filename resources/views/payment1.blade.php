@@ -123,7 +123,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                    <label for="">City</label>
+                                    <label for="">Region of sender</label>
                                         <input type="text" name="city" class="form-control" placeholder="Kuala lumpur etc." value="{{ old('city') }}">
                                         @if ($errors->has('city'))
                                             <span class="text-danger">{{ $errors->first('city') }}</span>
@@ -134,7 +134,7 @@
                   
                    
                             <div class="form-group text-center">
-                            <button type="submit" class="btn btn-primary">Update Profile</button>
+                            <button type="submit" class="btn btn-primary">Donate now</button>
                         </form>
                     </div>
                 </div>

@@ -57,7 +57,7 @@
                         @else
 
                             <li><a class="nav-link" href="/donate">Donate</a></li>
-                            <li><a class="nav-link" href="/community">Community</a></li>
+                            <li><a class="nav-link" href="{{ route('posts.showPage')  }}">Community</a></li>
                             <li><a class="nav-link" href="/about">About us</a></li>
                             <li><a class="nav-link" href="/contact-form">Contact us</a></li>
 

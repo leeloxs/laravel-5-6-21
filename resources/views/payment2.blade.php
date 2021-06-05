@@ -23,8 +23,7 @@
                         </div>
                         @endif
                    
-                        <form method="POST" action="receipt">
-                  
+                        <form method="POST" action="{{ url('receipt') }}" enctype="multipart/form-data"> 
                             {{ csrf_field() }}
                             <div class="row">
                                 <div class="col-md-6">
@@ -50,7 +49,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <strong>Amount:</strong>
-                                        <input type="text" name="phone" class="form-control" placeholder="Example. 50RM, 100RM" value="{{ old('Amount') }}">
+                                        <input type="text" name="amount" class="form-control" placeholder="Example. 50RM, 100RM" value="{{ old('Amount') }}">
                                         @if ($errors->has('phone'))
                                             <span class="text-danger">{{ $errors->first('Amount') }}</span>
                                         @endif

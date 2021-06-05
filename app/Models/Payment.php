@@ -8,5 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Payment extends Model
 {
     use HasFactory;
-    public $timestamps=false;
+    public $timestamps=true;
+
+    protected $guarded = [];
 }

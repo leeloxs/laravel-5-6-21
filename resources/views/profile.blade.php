@@ -86,7 +86,6 @@ My profile
                       </div>
                    </div>
                    <div class="col-md-4">
-                      <input type="file" name="image" class="form-control"> <br>
                       <img name="image" src="{{ asset('/img/prof.png') }}" value="{{ Auth::user()->image}}" class="w-75" alt="">
                        </div>
                    </div>
